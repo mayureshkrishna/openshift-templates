@@ -1,0 +1,21 @@
+{
+    "kind": "HorizontalPodAutoscaler",
+    "apiVersion": "autoscaling/v1",
+    "metadata": {
+        "name": "YOUR_APP_NAME",
+        "creationTimestamp": null,
+        "labels": {
+            "app": "YOUR_APP_NAME"
+        }
+    },
+    "spec": {
+        "scaleTargetRef": {
+            "kind": "DeploymentConfig",
+            "name": "YOUR_APP_DC_NAME",
+            "apiVersion": "extensions/v1beta1"
+        },
+        "minReplicas": 2,
+        "maxReplicas": 4,
+        "targetCPUUtilizationPercentage": 80
+    }
+}

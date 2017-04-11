@@ -1,0 +1,30 @@
+{
+    "kind": "Route",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "YOUR_APP_NAME",
+        "creationTimestamp": null,
+        "labels": {
+            "app": "YOUR_APP_NAME"
+        },
+        "annotations": {
+            "openshift.io/generated-by": "OpenShiftNewApp",
+            "openshift.io/host.generated": "true"
+        }
+    },
+    "spec": {
+        "host": "YOUR_APP_NAME-PROJECT_NAME.bss-np.corp.cox.com",
+        "to": {
+            "kind": "Service",
+            "name": "YOUR_APP_NAME",
+            "weight": 100
+        },
+        "port": {
+            "targetPort": "8080-tcp"
+        },
+        "tls": {
+            "termination": "edge",
+            "insecureEdgeTerminationPolicy": "Allow"
+        }
+    }
+}
